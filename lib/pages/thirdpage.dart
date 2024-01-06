@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lib8_150/pages/secondpage.dart';
 
 class thirdpage extends StatefulWidget {
-  const thirdpage({super.key});
+  const thirdpage({super.key, required this.data});
+
+  final String data;
 
   @override
   State<thirdpage> createState() => _thirdpageState();
@@ -18,6 +20,7 @@ class _thirdpageState extends State<thirdpage> {
       body: Center(
           child: Column(
         children: [
+          Text(widget.data),
           ElevatedButton(
               onPressed: () {
                 Navigator.pop(context,

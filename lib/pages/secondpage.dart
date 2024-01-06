@@ -9,6 +9,7 @@ class secondpage extends StatefulWidget {
 }
 
 class _secondpageState extends State<secondpage> {
+  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +21,7 @@ class _secondpageState extends State<secondpage> {
           children: [
             Text('หน้าที่2'),
             TextFormField(
+              controller: _controller,
               autofocus: true,
               textInputAction: TextInputAction.next,
               decoration: const InputDecoration(
@@ -34,8 +36,12 @@ class _secondpageState extends State<secondpage> {
                 child: Text('back page')),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => thirdpage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => thirdpage(
+                                data: _controller.text,
+                              )));
                 },
                 child: Text('next page'))
           ],
